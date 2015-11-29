@@ -24,7 +24,7 @@
             <img src="Images/tabAngularJS.png" />
         </div>
         <div id="divMasterView">
-            <div id="{{customer.customerid}}" class="cssOneCompanyRecord" ng-class="{cssCompanySelectedRecord: Customer.CustomerID == selectedCustomer}" ng-repeat='Customer in listOfCustomers' ng-click="selectCustomer(Customer);">
+            <div id="{{Customer.CustomerID}}" class="cssOneCompanyRecord" ng-class="{cssCompanySelectedRecord: Customer.CustomerID == selectedCustomer}" ng-repeat='Customer in listOfCustomers' ng-click="selectCustomer(Customer);">
                 <div class="cssCompanyName">{{Customer.CompanyName}}</div>
                 <div class="cssCompanyCity">{{Customer.City}}</div>
                 <div class="cssCustomerID">{{Customer.CustomerID}}</div>
@@ -38,7 +38,6 @@
                     <div class="cssOrderID">Order # {{Order.OrderID}}</div>
                     <div class="cssOrderDate">Order Date: {{Order.OrderDate}}</div>
                 </div>
-                <!--<div class="cssOneProductRecord" ng-repeat='Product in Order.ProductsInBasket | filter:ProductsInOrder' ng-class-odd="'cssProductOdd'" ng-class-even="'cssProductEven'"> -->
                 <div class="cssOneProductRecord" ng-repeat='Product in Order.ProductsInBasket' ng-class-odd="'cssProductOdd'" ng-class-even="'cssProductEven'">
                     <div class="cssOneProductQty">{{Product.Quantity}}</div>
                     <div class="cssOneProductName">{{Product.ProductName}}</div>
