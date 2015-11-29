@@ -21,6 +21,14 @@ myApp.directive('masterView', function(){
     };
 });
 
+myApp.directive('detailView', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/detail-view.html'
+    };
+});
+
+
 myApp.filter('sumByKey', function () {
     return function (data, key) {
         if (typeof (data) === 'undefined' || typeof (key) === 'undefined') {

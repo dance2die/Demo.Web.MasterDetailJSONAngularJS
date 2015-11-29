@@ -29,7 +29,8 @@
 
         </div>
         <div id="divDetailView">
-            <!--  .$select('Order, sum(Quantity) as OrderTotal')-->
+<!--
+            &lt;!&ndash;  .$select('Order, sum(Quantity) as OrderTotal')&ndash;&gt;
             <div id="Order_{{Order.OrderID}}" ng-repeat="Order in listOfOrders" class="cssOneOrderRecord">
                 <div class="cssOneOrderHeader">
                     <div class="cssOrderID">Order # {{Order.OrderID}}</div>
@@ -45,6 +46,10 @@
                 <order-total></order-total>
 
             </div>
+-->
+
+            <detail-view></detail-view>
+
         </div>
     </div>
 
