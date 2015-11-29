@@ -29,24 +29,6 @@
 
         </div>
         <div id="divDetailView">
-<!--
-            &lt;!&ndash;  .$select('Order, sum(Quantity) as OrderTotal')&ndash;&gt;
-            <div id="Order_{{Order.OrderID}}" ng-repeat="Order in listOfOrders" class="cssOneOrderRecord">
-                <div class="cssOneOrderHeader">
-                    <div class="cssOrderID">Order # {{Order.OrderID}}</div>
-                    <div class="cssOrderDate">Order Date: {{Order.OrderDate}}</div>
-                </div>
-                <div class="cssOneProductRecord" ng-repeat='Product in Order.ProductsInBasket' ng-class-odd="'cssProductOdd'" ng-class-even="'cssProductEven'">
-                    <div class="cssOneProductQty">{{Product.Quantity}}</div>
-                    <div class="cssOneProductName">{{Product.ProductName}}</div>
-                    <div class="cssOneProductPrice">@ {{Product.UnitPrice | currency}}</div>
-                    <div class="cssOneProductSubtotal">{{Product.UnitPrice * Product.Quantity | currency}}</div>
-                </div>
-
-                <order-total></order-total>
-
-            </div>
--->
 
             <detail-view></detail-view>
 
