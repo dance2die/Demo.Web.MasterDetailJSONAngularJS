@@ -44,15 +44,9 @@
                     <div class="cssOneProductPrice">@ {{Product.UnitPrice | currency}}</div>
                     <div class="cssOneProductSubtotal">{{Product.UnitPrice * Product.Quantity | currency}}</div>
                 </div>
-                <!--<div class="cssOneOrderTotal">
-                    <div class="cssOneProductQty">
-                        {{Order.ProductsInBasket|countItemsInOrder}} item(s), {{Order.ProductsInBasket.length}} product(s)
-                    </div>
-                    <div class="cssOneProductSubtotal">
-                        {{Order.ProductsInBasket|orderTotal | currency}}
-                    </div>
-                </div>-->
+
                 <order-total></order-total>
+
             </div>
         </div>
     </div>
