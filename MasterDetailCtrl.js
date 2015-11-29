@@ -7,6 +7,13 @@ myApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
+myApp.directive('orderTotal', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/order-total.html'
+    };
+});
+
 myApp.filter('sumByKey', function () {
     return function (data, key) {
         if (typeof (data) === 'undefined' || typeof (key) === 'undefined') {
