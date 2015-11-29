@@ -14,6 +14,13 @@ myApp.directive('orderTotal', function(){
     };
 });
 
+myApp.directive('masterView', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/master-view.html'
+    };
+});
+
 myApp.filter('sumByKey', function () {
     return function (data, key) {
         if (typeof (data) === 'undefined' || typeof (key) === 'undefined') {
