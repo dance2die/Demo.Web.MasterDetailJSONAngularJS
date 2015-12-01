@@ -33,15 +33,15 @@
         return {
             restrict: 'E',
             templateUrl: 'templates/master-detail-view.html',
-            controller: function ($scope, $http) {
+            controller: function ($scope, $http, customerService) {
                 //  We'll load our list of Customers from our JSON Web Service into this variable
                 $scope.listOfCustomers = null;
 
                 //  When the user selects a "Customer" from our MasterView list, we'll set the following variable.
                 $scope.selectedCustomer = null;
 
-                $http.get('http://inorthwind.azurewebsites.net/Service1.svc/getAllCustomers')
-
+                //$http.get('http://inorthwind.azurewebsites.net/Service1.svc/getAllCustomers')
+                customerService.getAllCustomers()
                     .success(function (data) {
                         $scope.listOfCustomers = data.GetAllCustomersResult;
 
