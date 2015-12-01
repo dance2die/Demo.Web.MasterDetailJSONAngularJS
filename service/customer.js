@@ -7,6 +7,9 @@
             return {
                 getAllCustomers : function(){
                     return $http.get('http://inorthwind.azurewebsites.net/Service1.svc/getAllCustomers');
+                },
+                getBasketsForCustomer: function(customerId){
+                    return $http.get('http://inorthwind.azurewebsites.net/Service1.svc/getBasketsForCustomer/' + customerId)
                 }
             };
         }]);
