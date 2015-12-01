@@ -40,7 +40,6 @@
                 //  When the user selects a "Customer" from our MasterView list, we'll set the following variable.
                 $scope.selectedCustomer = null;
 
-                //$http.get('http://inorthwind.azurewebsites.net/Service1.svc/getAllCustomers')
                 customerService.getAllCustomers()
                     .success(function (data) {
                         $scope.listOfCustomers = data.GetAllCustomersResult;
@@ -71,7 +70,6 @@
                     $scope.listOfOrders = null;
 
                     //  The user has selected a Customer from our Drop Down List.  Let's load this Customer's records.
-                    //$http.get('http://inorthwind.azurewebsites.net/Service1.svc/getBasketsForCustomer/' + $scope.selectedCustomer)
                     customerService.getBasketsForCustomer($scope.selectedCustomer)
                         .success(function (data) {
                             $scope.listOfOrders = data.GetBasketsForCustomerResult;
