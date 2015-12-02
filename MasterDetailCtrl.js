@@ -15,10 +15,29 @@
         };
     });
 
-    myApp.directive('masterView', function(){
+    myApp.directive('masterView', function(customerService){
         return {
             restrict: 'E',
-            templateUrl: 'templates/master-view.html'
+            templateUrl: 'templates/master-view.html',
+            link: function(scope, element, attrs){
+                customerService.getAllCustomers()
+                    .success(function (data) {
+                        scope.listOfCustomers = data.GetAllCustomersResult;
+
+                        if (scope.listOfCustomers.length > 0) {
+                            //  If we managed to load more than one Customer record, then select the first record by default.
+                            //  This line of code also prevents AngularJS from adding a "blank" <option> record in our drop down list
+                            //  (to cater for the blank value it'd find in the "selectedCustomer" variable)
+                            scope.selectedCustomer = scope.listOfCustomers[0].CustomerID;
+
+                            //  Load the list of Orders, and their Products, that this Customer has ever made.
+                            scope.loadOrders();
+                        }
+                    })
+                    .error(function (data, status, headers, config) {
+                        scope.errorMessage = "Couldn't load the list of customers, error # " + status;
+                    });
+            }
         };
     });
 
@@ -40,6 +59,7 @@
                 //  When the user selects a "Customer" from our MasterView list, we'll set the following variable.
                 $scope.selectedCustomer = null;
 
+/*
                 customerService.getAllCustomers()
                     .success(function (data) {
                         $scope.listOfCustomers = data.GetAllCustomersResult;
@@ -58,6 +78,7 @@
                     .error(function (data, status, headers, config) {
                         $scope.errorMessage = "Couldn't load the list of customers, error # " + status;
                     });
+*/
 
                 $scope.selectCustomer = function (val) {
                     //  If the user clicks on a <div>, we can get the ng-click to call this function, to set a new selected Customer.
