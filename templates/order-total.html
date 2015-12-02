@@ -1,8 +1,8 @@
 <div class="cssOneOrderTotal">
     <div class="cssOneProductQty">
-        {{order.ProductsInBasket|countItemsInOrder}} item(s), {{order.ProductsInBasket.length}} product(s)
+        {{order.ProductsInBasket | countItemsInOrder}} item(s), {{order.ProductsInBasket.length}} product(s)
     </div>
     <div class="cssOneProductSubtotal">
-        {{order.ProductsInBasket|orderTotal | currency}}
+        {{order.ProductsInBasket | orderTotal | currency}}
     </div>
 </div>
