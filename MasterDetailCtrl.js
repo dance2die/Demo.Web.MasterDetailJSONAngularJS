@@ -19,6 +19,33 @@
         return {
             restrict: 'E',
             templateUrl: 'templates/master-view.html',
+            controller: function($scope){
+                //  We'll load our list of Customers from our JSON Web Service into this variable
+                $scope.listOfCustomers = null;
+
+                //  When the user selects a "Customer" from our MasterView list, we'll set the following variable.
+                $scope.selectedCustomer = null;
+
+                $scope.selectCustomer = function (val) {
+                    //  If the user clicks on a <div>, we can get the ng-click to call this function, to set a new selected Customer.
+                    $scope.selectedCustomer = val.CustomerID;
+                    $scope.loadOrders();
+                }
+
+                $scope.loadOrders = function () {
+                    //  Reset our list of orders  (when binded, this'll ensure the previous list of orders disappears from the screen while we're loading our JSON data)
+                    $scope.listOfOrders = null;
+
+                    //  The user has selected a Customer from our Drop Down List.  Let's load this Customer's records.
+                    customerService.getBasketsForCustomer($scope.selectedCustomer)
+                        .success(function (data) {
+                            $scope.listOfOrders = data.GetBasketsForCustomerResult;
+                        })
+                        .error(function (data, status, headers, config) {
+                            $scope.errorMessage = "Couldn't load the list of Orders, error # " + status;
+                        });
+                }
+            },
             link: function(scope, element, attrs){
                 customerService.getAllCustomers()
                     .success(function (data) {
@@ -59,11 +86,11 @@
             restrict: 'E',
             templateUrl: 'templates/master-detail-view.html',
             controller: function ($scope, $http, customerService) {
-                //  We'll load our list of Customers from our JSON Web Service into this variable
+/*                //  We'll load our list of Customers from our JSON Web Service into this variable
                 $scope.listOfCustomers = null;
 
                 //  When the user selects a "Customer" from our MasterView list, we'll set the following variable.
-                $scope.selectedCustomer = null;
+                $scope.selectedCustomer = null;*/
 
 /*
                 customerService.getAllCustomers()
@@ -86,7 +113,7 @@
                     });
 */
 
-                $scope.selectCustomer = function (val) {
+/*                $scope.selectCustomer = function (val) {
                     //  If the user clicks on a <div>, we can get the ng-click to call this function, to set a new selected Customer.
                     $scope.selectedCustomer = val.CustomerID;
                     $scope.loadOrders();
@@ -104,7 +131,7 @@
                         .error(function (data, status, headers, config) {
                             $scope.errorMessage = "Couldn't load the list of Orders, error # " + status;
                         });
-                }
+                }*/
             }
         }
     });
