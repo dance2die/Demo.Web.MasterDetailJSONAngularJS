@@ -1,14 +1,14 @@
 <!--  .$select('Order, sum(Quantity) as OrderTotal')-->
-<div id="Order_{{Order.OrderID}}" ng-repeat="Order in listOfOrders" class="cssOneOrderRecord">
+<div id="Order_{{order.OrderID}}" class="cssOneOrderRecord">
     <div class="cssOneOrderHeader">
-        <div class="cssOrderID">Order # {{Order.OrderID}}</div>
-        <div class="cssOrderDate">Order Date: {{Order.OrderDate}}</div>
+        <div class="cssOrderID">Order # {{order.OrderID}}</div>
+        <div class="cssOrderDate">Order Date: {{order.OrderDate}}</div>
     </div>
-    <div class="cssOneProductRecord" ng-repeat='Product in Order.ProductsInBasket' ng-class-odd="'cssProductOdd'" ng-class-even="'cssProductEven'">
-        <div class="cssOneProductQty">{{Product.Quantity}}</div>
-        <div class="cssOneProductName">{{Product.ProductName}}</div>
-        <div class="cssOneProductPrice">@ {{Product.UnitPrice | currency}}</div>
-        <div class="cssOneProductSubtotal">{{Product.UnitPrice * Product.Quantity | currency}}</div>
+    <div class="cssOneProductRecord" ng-repeat='product in order.ProductsInBasket' ng-class-odd="'cssProductOdd'" ng-class-even="'cssProductEven'">
+        <div class="cssOneProductQty">{{product.Quantity}}</div>
+        <div class="cssOneProductName">{{product.ProductName}}</div>
+        <div class="cssOneProductPrice">@ {{product.UnitPrice | currency}}</div>
+        <div class="cssOneProductSubtotal">{{product.UnitPrice * product.Quantity | currency}}</div>
     </div>
 
     <order-total></order-total>

@@ -41,10 +41,16 @@
         };
     });
 
-    myApp.directive('detailView', function(){
+    myApp.directive('detailView', function(customerService){
         return {
             restrict: 'E',
-            templateUrl: 'templates/detail-view.html'
+            templateUrl: 'templates/detail-view.html',
+            link: function(scope, element, attrs) {
+
+            },
+            scope: {
+                order: "="
+            }
         };
     });
 
